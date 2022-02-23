@@ -1,52 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220223 12:30:33.308" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220223 12:59:00.693" rpa="false" schemaversion="2">
 <suite id="s1" name="Demo1 Suite" source="C:\Mine\Company\NCS2\robot_project\robot_suite\demo1_suite.robot">
 <test id="s1-t1" name="TC1 Print Name">
 <kw name="Log To Console" library="BuiltIn">
 <arg>Balaji Dinakaran</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220223 12:30:33.338" endtime="20220223 12:30:33.339"/>
+<status status="PASS" starttime="20220223 12:59:00.724" endtime="20220223 12:59:00.724"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Hello Everyone123</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220223 12:30:33.339" endtime="20220223 12:30:33.339"/>
+<status status="PASS" starttime="20220223 12:59:00.724" endtime="20220223 12:59:00.725"/>
 </kw>
-<status status="PASS" starttime="20220223 12:30:33.338" endtime="20220223 12:30:33.340"/>
+<status status="PASS" starttime="20220223 12:59:00.723" endtime="20220223 12:59:00.725"/>
 </test>
 <test id="s1-t2" name="TC2 Log In Report">
 <kw name="Log" library="BuiltIn">
 <arg>Balaji</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220223 12:30:33.342" level="INFO">Balaji</msg>
-<status status="PASS" starttime="20220223 12:30:33.341" endtime="20220223 12:30:33.342"/>
+<msg timestamp="20220223 12:59:00.727" level="INFO">Balaji</msg>
+<status status="PASS" starttime="20220223 12:59:00.726" endtime="20220223 12:59:00.727"/>
 </kw>
-<status status="PASS" starttime="20220223 12:30:33.341" endtime="20220223 12:30:33.342"/>
+<status status="PASS" starttime="20220223 12:59:00.726" endtime="20220223 12:59:00.727"/>
 </test>
 <test id="s1-t3" name="TC3 Print Date">
 <kw name="Get Current Date" library="DateTime">
 <var>${current_date}</var>
 <doc>Returns current local or UTC time with an optional increment.</doc>
-<msg timestamp="20220223 12:30:33.344" level="INFO">${current_date} = 2022-02-23 12:30:33.344</msg>
-<status status="PASS" starttime="20220223 12:30:33.344" endtime="20220223 12:30:33.344"/>
+<msg timestamp="20220223 12:59:00.729" level="INFO">${current_date} = 2022-02-23 12:59:00.729</msg>
+<status status="PASS" starttime="20220223 12:59:00.728" endtime="20220223 12:59:00.729"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${current_date}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220223 12:30:33.345" endtime="20220223 12:30:33.346"/>
+<status status="PASS" starttime="20220223 12:59:00.729" endtime="20220223 12:59:00.730"/>
 </kw>
-<status status="PASS" starttime="20220223 12:30:33.343" endtime="20220223 12:30:33.346"/>
+<status status="PASS" starttime="20220223 12:59:00.728" endtime="20220223 12:59:00.730"/>
 </test>
-<status status="PASS" starttime="20220223 12:30:33.310" endtime="20220223 12:30:33.348"/>
+<test id="s1-t4" name="TC4">
+<kw name="Set Variable" library="BuiltIn">
+<var>${name}</var>
+<arg>john</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220223 12:59:00.732" level="INFO">${name} = john</msg>
+<status status="PASS" starttime="20220223 12:59:00.732" endtime="20220223 12:59:00.732"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220223 12:59:00.732" endtime="20220223 12:59:00.733"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${my_name}</arg>
+<arg>balaji dinakaran</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20220223 12:59:00.735" level="INFO">${my_name} = balaji dinakaran</msg>
+<status status="PASS" starttime="20220223 12:59:00.734" endtime="20220223 12:59:00.735"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${my_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220223 12:59:00.735" endtime="20220223 12:59:00.736"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${my_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220223 12:59:00.736" level="INFO">balaji dinakaran</msg>
+<status status="PASS" starttime="20220223 12:59:00.736" endtime="20220223 12:59:00.736"/>
+</kw>
+<status status="PASS" starttime="20220223 12:59:00.731" endtime="20220223 12:59:00.737"/>
+</test>
+<test id="s1-t5" name="TC5">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${num1}</arg>
+<arg>25</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20220223 12:59:00.740" level="INFO">${num1} = 25</msg>
+<status status="PASS" starttime="20220223 12:59:00.739" endtime="20220223 12:59:00.740"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${num2}</arg>
+<arg>24</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20220223 12:59:00.741" level="INFO">${num2} = 24</msg>
+<status status="PASS" starttime="20220223 12:59:00.740" endtime="20220223 12:59:00.741"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result}</var>
+<arg>${num1}+${num2}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220223 12:59:00.741" level="INFO">${result} = 49</msg>
+<status status="PASS" starttime="20220223 12:59:00.741" endtime="20220223 12:59:00.741"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220223 12:59:00.742" endtime="20220223 12:59:00.742"/>
+</kw>
+<status status="PASS" starttime="20220223 12:59:00.738" endtime="20220223 12:59:00.742"/>
+</test>
+<test id="s1-t6" name="TC6">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${radius}</arg>
+<arg>25</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20220223 12:59:00.744" level="INFO">${radius} = 25</msg>
+<status status="PASS" starttime="20220223 12:59:00.744" endtime="20220223 12:59:00.744"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${area_of_circle}</var>
+<arg>3.14*${radius}*${radius}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220223 12:59:00.745" level="INFO">${area_of_circle} = 1962.5</msg>
+<status status="PASS" starttime="20220223 12:59:00.745" endtime="20220223 12:59:00.745"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${area_of_circle}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220223 12:59:00.746" endtime="20220223 12:59:00.746"/>
+</kw>
+<status status="PASS" starttime="20220223 12:59:00.743" endtime="20220223 12:59:00.747"/>
+</test>
+<status status="PASS" starttime="20220223 12:59:00.694" endtime="20220223 12:59:00.748"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Demo1 Suite">Demo1 Suite</stat>
+<stat pass="6" fail="0" skip="0" id="s1" name="Demo1 Suite">Demo1 Suite</stat>
 </suite>
 </statistics>
 <errors>
