@@ -56,6 +56,8 @@ TC8
     Log To Console    ${TEMPDIR}
     Log To Console    ${PREV_TEST_NAME}
     Log To Console    ${PREV_TEST_STATUS}
+    Log To Console    ${EXECDIR}\\driver\\chromedriver.exe
+    Log To Console    ${EXECDIR}${/}driver${/}chromedriver.exe
 
 TC9
     Set Local Variable    ${num1}   0
@@ -75,4 +77,10 @@ TC10
             Log To Console    Firefox
     ELSE
            Log To Console    Edge
+    END
+
+TC11
+    # print 1 to 10
+    FOR    ${i}    IN RANGE    1    11
+        Log To Console     ${i}
     END
