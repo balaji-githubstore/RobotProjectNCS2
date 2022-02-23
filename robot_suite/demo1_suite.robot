@@ -1,5 +1,6 @@
 *** Settings ***
 Library     DateTime
+Library     String
 
 *** Test Cases ***
 TC1 Print Name
@@ -32,5 +33,46 @@ TC6
     Set Local Variable    ${radius}   25
     ${area_of_circle}   Evaluate    3.14*${radius}*${radius}
     Log To Console    ${area_of_circle}
-    #one way to comment
-    Comment     will start at 2 PM IST
+
+TC7
+    Set Local Variable    ${var1}   $125,000,500
+    Set Local Variable    ${var2}   $100,500
+
+    ${var1}     Remove String    ${var1}    $     ,
+    Log To Console    ${var1}
+
+    ${var2}     Remove String    ${var2}    $     ,
+    Log To Console    ${var2}
+    
+    ${res}    Evaluate    ${var1}+${var2}
+    Log To Console    ${res}
+    
+TC8
+    Log To Console    ${CURDIR}
+    Log To Console    ${EXECDIR}
+    Log To Console    ${OUTPUT_DIR}
+    Log To Console    ${SUITE_NAME}
+    Log To Console    ${TEST_NAME}
+    Log To Console    ${TEMPDIR}
+    Log To Console    ${PREV_TEST_NAME}
+    Log To Console    ${PREV_TEST_STATUS}
+
+TC9
+    Set Local Variable    ${num1}   0
+    IF    ${num1}>0
+        Log To Console    positive ${num1}
+    ELSE IF     ${num1}==0
+        Log To Console    Zero
+    ELSE
+         Log To Console    negative ${num1}
+    END
+
+TC10
+    Set Local Variable    ${browser}   ch
+    IF    '${browser}' == 'ch'
+            Log To Console    Chrome
+    ELSE IF     '${browser}' == 'ff'
+            Log To Console    Firefox
+    ELSE
+           Log To Console    Edge
+    END
