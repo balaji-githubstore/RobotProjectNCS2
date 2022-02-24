@@ -4,6 +4,8 @@ Library     String
 
 *** Test Cases ***
 TC1 Print Name
+    Log To Console    C:\\Mine\\Company\\NCS2\\robot_project\\selenium-screenshot-1.png
+    Log To Console    C:${/}Mine${/}Company${/}NCS2${/}robot_project${/}selenium-screenshot-1.png
     Log To Console      Balaji Dinakaran
     Log To Console      Hello Everyone123
 

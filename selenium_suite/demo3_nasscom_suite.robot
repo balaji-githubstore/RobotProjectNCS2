@@ -16,7 +16,7 @@ Library     SeleniumLibrary
 TC1
     Open Browser    browser=chrome      executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
     Maximize Browser Window
-    Set Selenium Implicit Wait    30s
+    Set Selenium Implicit Wait    20s
     Go To    url=https://nasscom.in/
     Click Element    partial link=New User
     Input Text    id=edit-field-fname-reg    bala

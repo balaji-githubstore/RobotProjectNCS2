@@ -31,3 +31,22 @@ TC1
     ${text}     Get Text    xpath=//div[@class='inputField__requirements']
     Log To Console    ${text}
     Element Should Contain    xpath=//div[@class='inputField__requirements']    8 - 32 Characters
+
+
+TC2
+     Open Browser    url=https://www.goto.com/meeting/   browser=chrome   executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
+     Maximize Browser Window
+     Set Selenium Implicit Wait    30s
+     Click Element   id=truste-consent-button
+     Click Element   link=Try Free
+     Input Text    id=first-name   john
+     Input Text    id=last-name    wick
+     Input Text    id=login__email    john@gmail.com
+     Input Text    id=contact-number   9090909
+     Input Text    id=login__password    ertgyb
+     Select From List By Value    id=CompanySize     10 - 99
+     Click Element  xpath=//button[text()='Start My Trial']
+     ${header}  Get Text    tag=h1
+     Log To Console    ${header}
+     ${text}     get Text   xpath=//div[@class='inputField__requirements']
+     Log To Console    ${text}
