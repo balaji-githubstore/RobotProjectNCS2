@@ -1,78 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220224 12:36:39.783" rpa="false" schemaversion="2">
-<suite id="s1" name="Demo2 Orangehrm Suite" source="C:\Mine\Company\NCS2\robot_project\selenium_suite\demo2_orangehrm_suite.robot">
-<test id="s1-t1" name="TC2">
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220224 14:23:22.755" rpa="false" schemaversion="2">
+<suite id="s1" name="Demo3 Nasscom Suite" source="C:\Mine\Company\NCS2\robot_project\selenium_suite\demo3_nasscom_suite.robot">
+<test id="s1-t1" name="TC1">
 <kw name="Open Browser" library="SeleniumLibrary">
-<arg>browser=gc</arg>
+<arg>browser=chrome</arg>
 <arg>executable_path=${EXECDIR}${/}driver${/}chromedriver.exe</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220224 12:36:40.060" level="INFO">Opening browser 'gc' to base url 'None'.</msg>
-<status status="PASS" starttime="20220224 12:36:40.060" endtime="20220224 12:36:41.598"/>
+<msg timestamp="20220224 14:23:23.048" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20220224 14:23:23.047" endtime="20220224 14:23:24.524"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20220224 12:36:41.598" endtime="20220224 12:36:41.712"/>
+<status status="PASS" starttime="20220224 14:23:24.525" endtime="20220224 14:23:24.643"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>30s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20220224 12:36:41.713" endtime="20220224 12:36:41.716"/>
+<status status="PASS" starttime="20220224 14:23:24.644" endtime="20220224 14:23:24.659"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
-<arg>url=https://opensource-demo.orangehrmlive.com/</arg>
+<arg>url=https://nasscom.in/</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220224 12:36:41.717" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/'</msg>
-<status status="PASS" starttime="20220224 12:36:41.717" endtime="20220224 12:36:47.888"/>
+<msg timestamp="20220224 14:23:24.659" level="INFO">Opening url 'https://nasscom.in/'</msg>
+<status status="PASS" starttime="20220224 14:23:24.659" endtime="20220224 14:23:28.864"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>partial link=New User</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220224 14:23:28.866" level="INFO">Clicking element 'partial link=New User'.</msg>
+<status status="PASS" starttime="20220224 14:23:28.865" endtime="20220224 14:23:29.173"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
-<arg>id=txtUsername</arg>
-<arg>Admin</arg>
+<arg>id=edit-field-fname-reg</arg>
+<arg>bala</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220224 12:36:47.889" level="INFO">Typing text 'Admin' into text field 'id=txtUsername'.</msg>
-<status status="PASS" starttime="20220224 12:36:47.888" endtime="20220224 12:36:47.977"/>
+<msg timestamp="20220224 14:23:29.175" level="INFO">Typing text 'bala' into text field 'id=edit-field-fname-reg'.</msg>
+<status status="PASS" starttime="20220224 14:23:29.174" endtime="20220224 14:23:29.565"/>
 </kw>
-<kw name="Input Password" library="SeleniumLibrary">
-<arg>id=txtPassword</arg>
-<arg>admin123</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20220224 12:36:47.978" level="INFO">Typing password into text field 'id=txtPassword'.</msg>
-<msg timestamp="20220224 12:36:48.017" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20220224 12:36:48.054" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20220224 12:36:47.977" endtime="20220224 12:36:48.054"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=edit-field-lname</arg>
+<arg>dina</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220224 14:23:29.567" level="INFO">Typing text 'dina' into text field 'id=edit-field-lname'.</msg>
+<status status="PASS" starttime="20220224 14:23:29.566" endtime="20220224 14:23:29.693"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>name=Submit</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220224 12:36:48.056" level="INFO">Clicking element 'name=Submit'.</msg>
-<status status="PASS" starttime="20220224 12:36:48.054" endtime="20220224 12:36:52.982"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=edit-mail</arg>
+<arg>bala@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220224 14:23:29.694" level="INFO">Typing text 'bala@gmail.com' into text field 'id=edit-mail'.</msg>
+<status status="PASS" starttime="20220224 14:23:29.693" endtime="20220224 14:23:29.852"/>
 </kw>
-<kw name="Get Location" library="SeleniumLibrary">
-<var>${current_url}</var>
-<doc>Returns the current browser window URL.</doc>
-<msg timestamp="20220224 12:36:52.988" level="INFO">${current_url} = https://opensource-demo.orangehrmlive.com/index.php/dashboard</msg>
-<status status="PASS" starttime="20220224 12:36:52.983" endtime="20220224 12:36:52.988"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=edit-field-company-name-registration</arg>
+<arg>ncs</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220224 14:23:29.853" level="INFO">Typing text 'ncs' into text field 'id=edit-field-company-name-registration'.</msg>
+<status status="PASS" starttime="20220224 14:23:29.852" endtime="20220224 14:23:29.939"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>${current_url}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220224 12:36:52.989" level="INFO">https://opensource-demo.orangehrmlive.com/index.php/dashboard</msg>
-<status status="PASS" starttime="20220224 12:36:52.988" endtime="20220224 12:36:52.989"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>id=welcome</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220224 12:36:52.990" level="INFO">Clicking element 'id=welcome'.</msg>
-<status status="PASS" starttime="20220224 12:36:52.990" endtime="20220224 12:36:53.035"/>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>id=edit-field-business-focus-reg</arg>
+<arg>51</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220224 14:23:29.941" level="INFO">Selecting options from selection list 'id=edit-field-business-focus-reg' by value 51.</msg>
+<status status="PASS" starttime="20220224 14:23:29.941" endtime="20220224 14:23:30.015"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>Link=Logout</arg>
+<arg>id=edit-submit--2</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220224 12:36:53.036" level="INFO">Clicking element 'Link=Logout'.</msg>
-<status status="PASS" starttime="20220224 12:36:53.035" endtime="20220224 12:36:54.092"/>
+<msg timestamp="20220224 14:23:30.016" level="INFO">Clicking element 'id=edit-submit--2'.</msg>
+<status status="PASS" starttime="20220224 14:23:30.016" endtime="20220224 14:23:30.120"/>
 </kw>
-<status status="PASS" starttime="20220224 12:36:40.059" endtime="20220224 12:36:54.092"/>
+<status status="PASS" starttime="20220224 14:23:23.047" endtime="20220224 14:23:30.121"/>
 </test>
-<status status="PASS" starttime="20220224 12:36:39.787" endtime="20220224 12:36:54.094"/>
+<status status="PASS" starttime="20220224 14:23:22.757" endtime="20220224 14:23:30.123"/>
 </suite>
 <statistics>
 <total>
@@ -81,7 +82,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Demo2 Orangehrm Suite">Demo2 Orangehrm Suite</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Demo3 Nasscom Suite">Demo3 Nasscom Suite</stat>
 </suite>
 </statistics>
 <errors>
