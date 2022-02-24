@@ -39,7 +39,7 @@ TC2
     Click Element    id=welcome
     Click Element    link=Logout
 
-
+#adding emergency contact
 TC3
     Open Browser    browser=gc   executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
     Maximize Browser Window
