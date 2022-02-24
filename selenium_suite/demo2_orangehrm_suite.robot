@@ -12,6 +12,7 @@ Library     SeleniumLibrary
 TC1 Invalid Credential
     Open Browser    browser=gc   executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
     Maximize Browser Window
+    Set Selenium Implicit Wait    30s
     Go To    url=https://opensource-demo.orangehrmlive.com/index.php
     Input Text    id=txtUsername    john
     Input Password    id=txtPassword    john123
@@ -28,6 +29,7 @@ TC1 Invalid Credential
 TC2
     Open Browser    browser=gc   executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
     Maximize Browser Window
+    Set Selenium Implicit Wait    30s
     Go To    url=https://opensource-demo.orangehrmlive.com/
     Input Text    id=txtUsername    Admin
     Input Password    id=txtPassword    admin123
@@ -35,6 +37,22 @@ TC2
     ${current_url}     Get Location
     Log    ${current_url}
     Click Element    id=welcome
-    Sleep    10s
     Click Element    link=Logout
-    
+
+
+TC3
+    Open Browser    browser=gc   executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
+    Maximize Browser Window
+    Set Selenium Implicit Wait    30s
+    Go To    url=https://opensource-demo.orangehrmlive.com/
+    Input Text    id=txtUsername    Admin
+    Input Password    id=txtPassword    admin123
+    Click Element    name=Submit
+    Click Element    id=menu_pim_viewMyDetails
+#    Click Element    link=Emergency Contacts
+    Click Element    partial link=Emergency
+    Click Element    id=btnAddContact
+    Input Text    id=emgcontacts_name    John
+    Input Text    id=emgcontacts_relationship    Brother
+    Input Text    id=emgcontacts_homePhone    9888888899
+    Click Element    id=btnSaveEContact
