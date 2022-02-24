@@ -24,3 +24,17 @@ TC1 Invalid Credential
     Log To Console    ${error_text}
     Element Text Should Be    id=spanMessage    Invalid credentials
     Close Browser
+
+TC2
+    Open Browser    browser=gc   executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
+    Maximize Browser Window
+    Go To    url=https://opensource-demo.orangehrmlive.com/
+    Input Text    id=txtUsername    Admin
+    Input Password    id=txtPassword    admin123
+    Click Element    name=Submit
+    ${current_url}     Get Location
+    Log    ${current_url}
+    Click Element    id=welcome
+    Sleep    10s
+    Click Element    link=Logout
+    
