@@ -1,79 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220224 14:23:22.755" rpa="false" schemaversion="2">
-<suite id="s1" name="Demo3 Nasscom Suite" source="C:\Mine\Company\NCS2\robot_project\selenium_suite\demo3_nasscom_suite.robot">
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220224 15:17:30.814" rpa="false" schemaversion="2">
+<suite id="s1" name="Demo4 Gotomeet Suite" source="C:\Mine\Company\NCS2\robot_project\selenium_suite\demo4_gotomeet_suite.robot">
 <test id="s1-t1" name="TC1">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=chrome</arg>
 <arg>executable_path=${EXECDIR}${/}driver${/}chromedriver.exe</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220224 14:23:23.048" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<status status="PASS" starttime="20220224 14:23:23.047" endtime="20220224 14:23:24.524"/>
+<msg timestamp="20220224 15:17:31.126" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20220224 15:17:31.126" endtime="20220224 15:17:33.239"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20220224 14:23:24.525" endtime="20220224 14:23:24.643"/>
+<status status="PASS" starttime="20220224 15:17:33.240" endtime="20220224 15:17:33.359"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>30s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20220224 14:23:24.644" endtime="20220224 14:23:24.659"/>
+<status status="PASS" starttime="20220224 15:17:33.360" endtime="20220224 15:17:33.378"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
-<arg>url=https://nasscom.in/</arg>
+<arg>url=https://www.goto.com/meeting</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220224 14:23:24.659" level="INFO">Opening url 'https://nasscom.in/'</msg>
-<status status="PASS" starttime="20220224 14:23:24.659" endtime="20220224 14:23:28.864"/>
+<msg timestamp="20220224 15:17:33.379" level="INFO">Opening url 'https://www.goto.com/meeting'</msg>
+<status status="PASS" starttime="20220224 15:17:33.378" endtime="20220224 15:17:37.674"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>partial link=New User</arg>
+<arg>id=truste-consent-button</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220224 14:23:28.866" level="INFO">Clicking element 'partial link=New User'.</msg>
-<status status="PASS" starttime="20220224 14:23:28.865" endtime="20220224 14:23:29.173"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id=edit-field-fname-reg</arg>
-<arg>bala</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220224 14:23:29.175" level="INFO">Typing text 'bala' into text field 'id=edit-field-fname-reg'.</msg>
-<status status="PASS" starttime="20220224 14:23:29.174" endtime="20220224 14:23:29.565"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id=edit-field-lname</arg>
-<arg>dina</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220224 14:23:29.567" level="INFO">Typing text 'dina' into text field 'id=edit-field-lname'.</msg>
-<status status="PASS" starttime="20220224 14:23:29.566" endtime="20220224 14:23:29.693"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id=edit-mail</arg>
-<arg>bala@gmail.com</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220224 14:23:29.694" level="INFO">Typing text 'bala@gmail.com' into text field 'id=edit-mail'.</msg>
-<status status="PASS" starttime="20220224 14:23:29.693" endtime="20220224 14:23:29.852"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id=edit-field-company-name-registration</arg>
-<arg>ncs</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220224 14:23:29.853" level="INFO">Typing text 'ncs' into text field 'id=edit-field-company-name-registration'.</msg>
-<status status="PASS" starttime="20220224 14:23:29.852" endtime="20220224 14:23:29.939"/>
-</kw>
-<kw name="Select From List By Value" library="SeleniumLibrary">
-<arg>id=edit-field-business-focus-reg</arg>
-<arg>51</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20220224 14:23:29.941" level="INFO">Selecting options from selection list 'id=edit-field-business-focus-reg' by value 51.</msg>
-<status status="PASS" starttime="20220224 14:23:29.941" endtime="20220224 14:23:30.015"/>
+<msg timestamp="20220224 15:17:37.675" level="INFO">Clicking element 'id=truste-consent-button'.</msg>
+<status status="PASS" starttime="20220224 15:17:37.675" endtime="20220224 15:17:37.762"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>id=edit-submit--2</arg>
+<arg>link=Try Free</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220224 14:23:30.016" level="INFO">Clicking element 'id=edit-submit--2'.</msg>
-<status status="PASS" starttime="20220224 14:23:30.016" endtime="20220224 14:23:30.120"/>
+<msg timestamp="20220224 15:17:37.763" level="INFO">Clicking element 'link=Try Free'.</msg>
+<status status="PASS" starttime="20220224 15:17:37.762" endtime="20220224 15:17:39.254"/>
 </kw>
-<status status="PASS" starttime="20220224 14:23:23.047" endtime="20220224 14:23:30.121"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=first-name</arg>
+<arg>Balaji</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220224 15:17:39.254" level="INFO">Typing text 'Balaji' into text field 'id=first-name'.</msg>
+<status status="PASS" starttime="20220224 15:17:39.254" endtime="20220224 15:17:39.400"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=last-name</arg>
+<arg>Dina</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220224 15:17:39.401" level="INFO">Typing text 'Dina' into text field 'id=last-name'.</msg>
+<status status="PASS" starttime="20220224 15:17:39.401" endtime="20220224 15:17:39.504"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=login__email</arg>
+<arg>bala@g.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220224 15:17:39.505" level="INFO">Typing text 'bala@g.com' into text field 'id=login__email'.</msg>
+<status status="PASS" starttime="20220224 15:17:39.505" endtime="20220224 15:17:39.672"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>id=CompanySize</arg>
+<arg>10 - 99</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220224 15:17:39.673" level="INFO">Selecting options from selection list 'id=CompanySize' by label 10 - 99.</msg>
+<status status="PASS" starttime="20220224 15:17:39.673" endtime="20220224 15:17:39.775"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[text()='Start My Trial']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220224 15:17:39.777" level="INFO">Clicking element 'xpath=//button[text()='Start My Trial']'.</msg>
+<status status="PASS" starttime="20220224 15:17:39.776" endtime="20220224 15:17:39.895"/>
+</kw>
+<status status="PASS" starttime="20220224 15:17:31.124" endtime="20220224 15:17:39.896"/>
 </test>
-<status status="PASS" starttime="20220224 14:23:22.757" endtime="20220224 14:23:30.123"/>
+<status status="PASS" starttime="20220224 15:17:30.818" endtime="20220224 15:17:39.898"/>
 </suite>
 <statistics>
 <total>
@@ -82,7 +81,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Demo3 Nasscom Suite">Demo3 Nasscom Suite</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Demo4 Gotomeet Suite">Demo4 Gotomeet Suite</stat>
 </suite>
 </statistics>
 <errors>
