@@ -27,3 +27,7 @@ TC1
     Click Element    xpath=//button[text()='Start My Trial']
     ${header}      Get Text    tag=h1
     Log To Console    ${header}
+    
+    ${text}     Get Text    xpath=//div[@class='inputField__requirements']
+    Log To Console    ${text}
+    Element Should Contain    xpath=//div[@class='inputField__requirements']    8 - 32 Characters
