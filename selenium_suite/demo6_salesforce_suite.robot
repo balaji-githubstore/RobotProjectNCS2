@@ -17,7 +17,18 @@ Library     SeleniumLibrary
 TC1
     Open Browser    browser=chrome      executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
     Maximize Browser Window
-    Set Selenium Implicit Wait    10s
+    Set Selenium Implicit Wait    30s
     Go To    url=https://www.salesforce.com/in/form/signup/freetrial-sales/
-    Input Text    name=UserFirstNamE   bala
-   
+    Input Text    name=UserFirstName   bala
+    Input Text    xpath=//input[contains(@id,'UserLast')]    Dina
+    Input Text    name=UserEmail   bala@ncs.com
+    Select From List By Label    name=UserTitle     IT Manager
+    Input Text    name=CompanyName    NCS
+    Select From List By Label    xpath=//select[contains(@id,'CompanyCountry')]          United Kingdom
+    Select From List By Value    name=CompanyEmployees      950
+    Click Element    xpath=//div[@class='checkbox-ui']
+#    Click Element    name=start my free trial
+    Click Element    xpath=//button[text()='start my free trial']
+    Element Text Should Be    //span[contains(@id,'UserPhone')]    Enter a valid phone number
+    Element Should Contain    //span[contains(@id,'UserPhone')]     valid phone number
+    [Teardown]      Close Browser
