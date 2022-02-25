@@ -73,9 +73,6 @@ TC3
     Input Text    id=FirstName    john d
     Click Element    xpath=//input[@id='existcust' and @value='No']
 
-
-
-
 TC4 Switch Using Title
     Open Browser   browser=gc   executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
     Maximize Browser Window
@@ -84,11 +81,14 @@ TC4 Switch Using Title
     Click Element    link=APPLY FOR CREDIT CARDS
     Click Element    xpath=//span[text()='Login']
     Switch Window       Online Credit Card Application Form | Citi India
+    Log To Console    We are in Online Credit Card Application Form | Citi India
     Close Window
     Switch Window   Citibank India
+    Log To Console    We are in Citibank India
     Close Window
     Switch Window   MAIN
-
+    Log To Console    We are in main tab
+    Close Browser
 
 
 
