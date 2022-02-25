@@ -65,7 +65,7 @@ TC3
     Set Selenium Implicit Wait   20s
     Go To    url=https://www.online.citibank.co.in/
     Click Element    link=APPLY FOR CREDIT CARDS
-    Switch Window       NEW
+    Switch Window       Online Credit Card Application Form | Citi India
     Click Element    link=Travel
     Input Text    id=Email_Id    john@gmail.com
     Input Text    id=mobile_number    88999988888
@@ -76,10 +76,18 @@ TC3
 
 
 
-
-
-
-
+TC4
+    Open Browser   browser=gc   executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
+    Maximize Browser Window
+    Set Selenium Implicit Wait   20s
+    Go To    url=https://www.online.citibank.co.in/
+    Click Element    link=APPLY FOR CREDIT CARDS
+    Click Element    xpath=//span[text()='Login']
+    Switch Window       Online Credit Card Application Form | Citi India
+    Close Window
+    Switch Window   Citibank India
+    Close Window
+    Switch Window   MAIN
 
 
 
