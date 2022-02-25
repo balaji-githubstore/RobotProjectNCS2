@@ -86,3 +86,10 @@ TC11
     FOR    ${i}    IN RANGE    1    11
         Log To Console     ${i}
     END
+
+TC12
+    Set Local Variable    ${my_name}    balaji dinakaran
+    ${my_name}      Convert To Upper Case    ${my_name}
+    Log To Console    ${my_name}
+    Should Be Equal    ${my_name}     BALAJI DINAKARAN
+    Should Contain    ${my_name}    BALAJI
