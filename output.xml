@@ -1,74 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220225 17:22:25.592" rpa="false" schemaversion="2">
-<suite id="s1" name="Demo1 Openemr Suite" source="C:\Mine\Company\NCS2\robot_project\selenium_suite\demo1_openemr_suite.robot">
-<test id="s1-t1" name="TC1 Valid Login">
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220225 17:46:11.099" rpa="false" schemaversion="2">
+<suite id="s1" name="Demo11 Google Suite" source="C:\Mine\Company\NCS2\robot_project\selenium_suite\demo11_google_suite.robot">
+<test id="s1-t1" name="TC1">
+<kw name="Launch Browser" library="common_funcationalities">
 <kw name="Open Browser" library="SeleniumLibrary">
-<arg>url=http://demo.openemr.io/b/openemr</arg>
-<arg>browser=chrome</arg>
+<arg>browser=gc</arg>
 <arg>executable_path=${EXECDIR}${/}driver${/}chromedriver.exe</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220225 17:22:26.114" level="INFO">Opening browser 'chrome' to base url 'http://demo.openemr.io/b/openemr'.</msg>
-<status status="PASS" starttime="20220225 17:22:26.112" endtime="20220225 17:22:31.554"/>
+<msg timestamp="20220225 17:46:11.439" level="INFO">Opening browser 'gc' to base url 'None'.</msg>
+<status status="PASS" starttime="20220225 17:46:11.439" endtime="20220225 17:46:12.859"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20220225 17:22:31.555" endtime="20220225 17:22:31.675"/>
+<status status="PASS" starttime="20220225 17:46:12.859" endtime="20220225 17:46:12.989"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>30s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20220225 17:22:31.676" endtime="20220225 17:22:31.680"/>
+<status status="PASS" starttime="20220225 17:46:12.989" endtime="20220225 17:46:12.991"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id=authUser</arg>
-<arg>admin</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220225 17:22:31.682" level="INFO">Typing text 'admin' into text field 'id=authUser'.</msg>
-<status status="PASS" starttime="20220225 17:22:31.681" endtime="20220225 17:22:31.854"/>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=https://google.com</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220225 17:46:12.992" level="INFO">Opening url 'https://google.com'</msg>
+<status status="PASS" starttime="20220225 17:46:12.992" endtime="20220225 17:46:16.736"/>
 </kw>
-<kw name="Input Password" library="SeleniumLibrary">
-<arg>id=clearPass</arg>
-<arg>pass</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20220225 17:22:31.855" level="INFO">Typing password into text field 'id=clearPass'.</msg>
-<msg timestamp="20220225 17:22:31.977" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20220225 17:22:32.089" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20220225 17:22:31.855" endtime="20220225 17:22:32.090"/>
-</kw>
-<kw name="Select From List By Label" library="SeleniumLibrary">
-<arg>name=languageChoice</arg>
-<arg>English (Indian)</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<msg timestamp="20220225 17:22:32.093" level="INFO">Selecting options from selection list 'name=languageChoice' by label English (Indian).</msg>
-<status status="PASS" starttime="20220225 17:22:32.092" endtime="20220225 17:22:32.227"/>
+<status status="PASS" starttime="20220225 17:46:11.439" endtime="20220225 17:46:16.736"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>xpath=//button[@type='submit']</arg>
+<arg>link=Gmail</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220225 17:22:32.229" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
-<status status="PASS" starttime="20220225 17:22:32.228" endtime="20220225 17:22:35.837"/>
+<msg timestamp="20220225 17:46:16.737" level="INFO">Clicking element 'link=Gmail'.</msg>
+<status status="PASS" starttime="20220225 17:46:16.737" endtime="20220225 17:46:18.133"/>
 </kw>
-<kw name="Title Should Be" library="SeleniumLibrary">
-<arg>OpenEMR</arg>
-<doc>Verifies that the current page title equals ``title``.</doc>
-<msg timestamp="20220225 17:22:35.843" level="INFO">Page title is 'OpenEMR'.</msg>
-<status status="PASS" starttime="20220225 17:22:35.837" endtime="20220225 17:22:35.843"/>
-</kw>
-<kw name="Mouse Over" library="SeleniumLibrary">
-<arg>id=username</arg>
-<doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<msg timestamp="20220225 17:22:35.844" level="INFO">Simulating Mouse Over on element 'id=username'.</msg>
-<status status="PASS" starttime="20220225 17:22:35.843" endtime="20220225 17:22:36.128"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>xpath=//li[text()='Logout']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220225 17:22:36.129" level="INFO">Clicking element 'xpath=//li[text()='Logout']'.</msg>
-<status status="PASS" starttime="20220225 17:22:36.129" endtime="20220225 17:22:36.174"/>
-</kw>
-<status status="PASS" starttime="20220225 17:22:26.110" endtime="20220225 17:22:36.175"/>
+<status status="PASS" starttime="20220225 17:46:11.438" endtime="20220225 17:46:18.134"/>
 </test>
-<status status="PASS" starttime="20220225 17:22:25.594" endtime="20220225 17:22:36.177"/>
+<status status="PASS" starttime="20220225 17:46:11.102" endtime="20220225 17:46:18.135"/>
 </suite>
 <statistics>
 <total>
@@ -77,7 +44,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Demo1 Openemr Suite">Demo1 Openemr Suite</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Demo11 Google Suite">Demo11 Google Suite</stat>
 </suite>
 </statistics>
 <errors>
