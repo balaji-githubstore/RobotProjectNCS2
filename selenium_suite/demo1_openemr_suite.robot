@@ -10,4 +10,7 @@ TC1 Valid Login
      Input Password    id=clearPass    pass
      Select From List By Label    name=languageChoice       English (Indian)
      Click Element    xpath=//button[@type='submit']
+     Title Should Be    OpenEMR
+     Mouse Over    id=username
+     Click Element    xpath=//li[text()='Logout']
 
