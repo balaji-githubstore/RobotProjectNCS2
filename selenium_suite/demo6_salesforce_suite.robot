@@ -31,4 +31,23 @@ TC1
     Click Element    xpath=//button[text()='start my free trial']
     Element Text Should Be    //span[contains(@id,'UserPhone')]    Enter a valid phone number
     Element Should Contain    //span[contains(@id,'UserPhone')]     valid phone number
-    [Teardown]      Close Browser
+    [Teardown]  Close Browser
+
+TC2
+    Open Browser   browser=gc   executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
+    Go To    url=https://www.salesforce.com/in/form/signup/freetrial-sales/
+    Maximize Browser Window
+    Set Selenium Implicit Wait   30s
+    Input Text     name=UserFirstName  john
+    Input Text    name=UserLastName    wick
+    Input Text    name=UserEmail    john@gmail.com
+    Select From List By Label    name=UserTitle  IT Manager
+    Input Text    name=CompanyName    NCS
+    Select From List By Label    xpath=//select[contains(@id,'CompanyCountry')]     United Kingdom
+    Select From List By Value    name=CompanyEmployees   950
+    Click Element    xpath=//div[@class='checkbox-ui']
+    #Click Button    name=start my free trial
+    Click Button    xpath=//button[text()='start my free trial']
+    Element Text Should Be    //span[contains(@id,'UserPhone)]    Enter a valid phone number
+    Element Should Contain    //span[contains(@id,'UserPhone']    valid phone number
+    [Teardown]  Close Browser
