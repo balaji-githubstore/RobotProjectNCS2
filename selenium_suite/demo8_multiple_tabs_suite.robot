@@ -76,7 +76,7 @@ TC3
 
 
 
-TC4
+TC4 Switch Using Title
     Open Browser   browser=gc   executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
     Maximize Browser Window
     Set Selenium Implicit Wait   20s
