@@ -100,3 +100,7 @@ TC11
     Append To List    ${fruits}     orange
     Log To Console    ${var3}
     Log To Console    ${fruits}
+    
+TC12
+    &{dic}  Create Dictionary    name=bala       profession=trainer      salary=5000    
+    Log To Console    ${dic}[name]
