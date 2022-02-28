@@ -1,129 +1,770 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220228 17:10:21.059" rpa="false" schemaversion="2">
-<suite id="s1" name="Demo15 Selenium Suite" source="C:\Mine\Company\NCS2\robot_project\selenium_suite\demo15_selenium_suite.robot">
-<test id="s1-t1" name="TC1">
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220228 17:58:13.915" rpa="false" schemaversion="2">
+<suite id="s1" name="Demo16 Selenium Suite" source="C:\Mine\Company\NCS2\robot_project\selenium_suite\demo16_selenium_suite.robot">
+<test id="s1-t1" name="TC3">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=chrome</arg>
 <arg>executable_path=${EXECDIR}${/}driver${/}chromedriver.exe</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220228 17:10:21.347" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<status status="PASS" starttime="20220228 17:10:21.346" endtime="20220228 17:10:22.433"/>
+<msg timestamp="20220228 17:58:14.188" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20220228 17:58:14.187" endtime="20220228 17:58:15.669"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20220228 17:10:22.433" endtime="20220228 17:10:22.635"/>
+<status status="PASS" starttime="20220228 17:58:15.669" endtime="20220228 17:58:15.800"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>30s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20220228 17:10:22.636" endtime="20220228 17:10:22.637"/>
+<status status="PASS" starttime="20220228 17:58:15.801" endtime="20220228 17:58:15.806"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
-<arg>url=http://demo.openemr.io/b/openemr</arg>
+<arg>url=http://google.com</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220228 17:10:22.638" level="INFO">Opening url 'http://demo.openemr.io/b/openemr'</msg>
-<status status="PASS" starttime="20220228 17:10:22.638" endtime="20220228 17:10:26.085"/>
+<msg timestamp="20220228 17:58:15.808" level="INFO">Opening url 'http://google.com'</msg>
+<status status="PASS" starttime="20220228 17:58:15.807" endtime="20220228 17:58:17.671"/>
 </kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{elements}</var>
+<arg>tag=a</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.683" level="INFO">@{elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="615223e609ebc4474f70f75b3656ca56", element="82876616-38e4-47a0-a1a5-564890261f99")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" starttime="20220228 17:58:17.671" endtime="20220228 17:58:17.683"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>0</value>
+<value>25</value>
+<iter>
+<var name="${i}">0</var>
 <kw name="Get Text" library="SeleniumLibrary">
 <var>${text}</var>
-<arg>xpath=//p[contains(text(),'most')]</arg>
+<arg>${elements}[${i}]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20220228 17:10:26.113" level="INFO">${text} = The most popular open-source Electronic Health Record and Medical Practice Management solution.</msg>
-<status status="PASS" starttime="20220228 17:10:26.085" endtime="20220228 17:10:26.113"/>
+<msg timestamp="20220228 17:58:17.698" level="INFO">${text} = Gmail</msg>
+<status status="PASS" starttime="20220228 17:58:17.684" endtime="20220228 17:58:17.698"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${text}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220228 17:10:26.114" endtime="20220228 17:10:26.114"/>
+<status status="PASS" starttime="20220228 17:58:17.698" endtime="20220228 17:58:17.698"/>
 </kw>
-<kw name="Should Contain" library="BuiltIn">
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.710" level="INFO">${href} = https://mail.google.com/mail/&amp;ogbl</msg>
+<status status="PASS" starttime="20220228 17:58:17.698" endtime="20220228 17:58:17.710"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.711" endtime="20220228 17:58:17.711"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.684" endtime="20220228 17:58:17.711"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.724" level="INFO">${text} = Images</msg>
+<status status="PASS" starttime="20220228 17:58:17.711" endtime="20220228 17:58:17.724"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
 <arg>${text}</arg>
-<arg>The most popular open-source Electronic Health Record</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20220228 17:10:26.115" endtime="20220228 17:10:26.115"/>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.724" endtime="20220228 17:58:17.724"/>
 </kw>
 <kw name="Get Element Attribute" library="SeleniumLibrary">
-<var>${placeholder}</var>
-<arg>id=authUser</arg>
-<arg>placeholder</arg>
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
 <doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<msg timestamp="20220228 17:10:26.138" level="INFO">${placeholder} = Username:</msg>
-<status status="PASS" starttime="20220228 17:10:26.116" endtime="20220228 17:10:26.139"/>
+<msg timestamp="20220228 17:58:17.738" level="INFO">${href} = https://www.google.co.in/imghp?hl=en&amp;ogbl</msg>
+<status status="PASS" starttime="20220228 17:58:17.724" endtime="20220228 17:58:17.738"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>${placeholder}</arg>
+<arg>${href}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220228 17:10:26.139" endtime="20220228 17:10:26.139"/>
+<status status="PASS" starttime="20220228 17:58:17.738" endtime="20220228 17:58:17.738"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.711" endtime="20220228 17:58:17.738"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.751" level="INFO">${text} = </msg>
+<status status="PASS" starttime="20220228 17:58:17.738" endtime="20220228 17:58:17.751"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.751" endtime="20220228 17:58:17.752"/>
 </kw>
 <kw name="Get Element Attribute" library="SeleniumLibrary">
-<var>${val}</var>
-<arg>partial link=Acknowledgments</arg>
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
 <arg>href</arg>
 <doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<msg timestamp="20220228 17:10:26.164" level="INFO">${val} = http://demo.openemr.io/b/openemr/acknowledge_license_cert.html</msg>
-<status status="PASS" starttime="20220228 17:10:26.140" endtime="20220228 17:10:26.164"/>
+<msg timestamp="20220228 17:58:17.763" level="INFO">${href} = https://www.google.co.in/intl/en/about/products</msg>
+<status status="PASS" starttime="20220228 17:58:17.752" endtime="20220228 17:58:17.763"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>${val}</arg>
+<arg>${href}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220228 17:10:26.164" endtime="20220228 17:10:26.165"/>
+<status status="PASS" starttime="20220228 17:58:17.763" endtime="20220228 17:58:17.764"/>
 </kw>
-<kw name="Element Attribute Value Should Be" library="SeleniumLibrary">
-<arg>partial link=Acknowledgments</arg>
+<status status="PASS" starttime="20220228 17:58:17.738" endtime="20220228 17:58:17.764"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.775" level="INFO">${text} = Sign in</msg>
+<status status="PASS" starttime="20220228 17:58:17.764" endtime="20220228 17:58:17.775"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.775" endtime="20220228 17:58:17.776"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
 <arg>href</arg>
-<arg>http://demo.openemr.io/b/openemr/acknowledge_license_cert.html</arg>
-<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
-<msg timestamp="20220228 17:10:26.180" level="INFO">Element 'partial link=Acknowledgments' attribute 'href' contains value 'http://demo.openemr.io/b/openemr/acknowledge_license_cert.html'.</msg>
-<status status="PASS" starttime="20220228 17:10:26.166" endtime="20220228 17:10:26.180"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id=authUser</arg>
-<arg>Balaji Dinakaran</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220228 17:10:26.181" level="INFO">Typing text 'Balaji Dinakaran' into text field 'id=authUser'.</msg>
-<status status="PASS" starttime="20220228 17:10:26.181" endtime="20220228 17:10:26.248"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220228 17:10:28.251" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20220228 17:10:26.248" endtime="20220228 17:10:28.251"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id=authUser</arg>
-<arg>JJSJKSJKSJKSJ</arg>
-<arg>True</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220228 17:10:28.252" level="INFO">Typing text 'JJSJKSJKSJKSJ' into text field 'id=authUser'.</msg>
-<status status="PASS" starttime="20220228 17:10:28.251" endtime="20220228 17:10:28.323"/>
-</kw>
-<kw name="Get Value" library="SeleniumLibrary">
-<var>${val}</var>
-<arg>id=authUser</arg>
-<doc>Returns the value attribute of the element identified by ``locator``.</doc>
-<msg timestamp="20220228 17:10:28.339" level="INFO">${val} = JJSJKSJKSJKSJ</msg>
-<status status="PASS" starttime="20220228 17:10:28.323" endtime="20220228 17:10:28.340"/>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.785" level="INFO">${href} = https://accounts.google.com/ServiceLogin?hl=en&amp;passive=true&amp;continue=https://www.google.com/%3Fgws_rd%3Dssl&amp;ec=GAZAmgQ</msg>
+<status status="PASS" starttime="20220228 17:58:17.776" endtime="20220228 17:58:17.785"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>${val}</arg>
+<arg>${href}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220228 17:10:28.340" endtime="20220228 17:10:28.340"/>
+<status status="PASS" starttime="20220228 17:58:17.785" endtime="20220228 17:58:17.785"/>
 </kw>
-<kw name="Get Selected List Label" library="SeleniumLibrary">
-<var>${selected_label}</var>
-<arg>name=languageChoice</arg>
-<doc>Returns the label of selected option from selection list ``locator``.</doc>
-<msg timestamp="20220228 17:10:28.396" level="INFO">${selected_label} = Default - English (Standard)</msg>
-<status status="PASS" starttime="20220228 17:10:28.341" endtime="20220228 17:10:28.396"/>
+<status status="PASS" starttime="20220228 17:58:17.764" endtime="20220228 17:58:17.785"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.798" level="INFO">${text} = </msg>
+<status status="PASS" starttime="20220228 17:58:17.786" endtime="20220228 17:58:17.798"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>${selected_label}</arg>
+<arg>${text}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220228 17:10:28.397" endtime="20220228 17:10:28.398"/>
+<status status="PASS" starttime="20220228 17:58:17.798" endtime="20220228 17:58:17.798"/>
 </kw>
-<status status="PASS" starttime="20220228 17:10:21.345" endtime="20220228 17:10:28.398"/>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.809" level="INFO">${href} = https://www.google.com/?gws_rd=ssl#</msg>
+<status status="PASS" starttime="20220228 17:58:17.798" endtime="20220228 17:58:17.809"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.809" endtime="20220228 17:58:17.810"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.786" endtime="20220228 17:58:17.810"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.822" level="INFO">${text} = हिन्दी</msg>
+<status status="PASS" starttime="20220228 17:58:17.810" endtime="20220228 17:58:17.823"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.823" endtime="20220228 17:58:17.824"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.833" level="INFO">${href} = https://www.google.com/setprefs?sig=0_iDCJOP-npKue5pg5X1u5cD-_Xic%3D&amp;hl=hi&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwj8pbz3sqL2AhV7sVYBHZg9ClcQ2ZgBCA4</msg>
+<status status="PASS" starttime="20220228 17:58:17.824" endtime="20220228 17:58:17.833"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.833" endtime="20220228 17:58:17.834"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.810" endtime="20220228 17:58:17.834"/>
+</iter>
+<iter>
+<var name="${i}">6</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.847" level="INFO">${text} = বাংলা</msg>
+<status status="PASS" starttime="20220228 17:58:17.834" endtime="20220228 17:58:17.847"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.847" endtime="20220228 17:58:17.848"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.857" level="INFO">${href} = https://www.google.com/setprefs?sig=0_iDCJOP-npKue5pg5X1u5cD-_Xic%3D&amp;hl=bn&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwj8pbz3sqL2AhV7sVYBHZg9ClcQ2ZgBCA8</msg>
+<status status="PASS" starttime="20220228 17:58:17.848" endtime="20220228 17:58:17.857"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.857" endtime="20220228 17:58:17.857"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.834" endtime="20220228 17:58:17.857"/>
+</iter>
+<iter>
+<var name="${i}">7</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.871" level="INFO">${text} = తెలుగు</msg>
+<status status="PASS" starttime="20220228 17:58:17.858" endtime="20220228 17:58:17.871"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.871" endtime="20220228 17:58:17.872"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.881" level="INFO">${href} = https://www.google.com/setprefs?sig=0_iDCJOP-npKue5pg5X1u5cD-_Xic%3D&amp;hl=te&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwj8pbz3sqL2AhV7sVYBHZg9ClcQ2ZgBCBA</msg>
+<status status="PASS" starttime="20220228 17:58:17.872" endtime="20220228 17:58:17.881"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.881" endtime="20220228 17:58:17.882"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.858" endtime="20220228 17:58:17.882"/>
+</iter>
+<iter>
+<var name="${i}">8</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.893" level="INFO">${text} = मराठी</msg>
+<status status="PASS" starttime="20220228 17:58:17.882" endtime="20220228 17:58:17.893"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.893" endtime="20220228 17:58:17.893"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.902" level="INFO">${href} = https://www.google.com/setprefs?sig=0_iDCJOP-npKue5pg5X1u5cD-_Xic%3D&amp;hl=mr&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwj8pbz3sqL2AhV7sVYBHZg9ClcQ2ZgBCBE</msg>
+<status status="PASS" starttime="20220228 17:58:17.893" endtime="20220228 17:58:17.902"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.902" endtime="20220228 17:58:17.902"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.882" endtime="20220228 17:58:17.902"/>
+</iter>
+<iter>
+<var name="${i}">9</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.914" level="INFO">${text} = தமிழ்</msg>
+<status status="PASS" starttime="20220228 17:58:17.902" endtime="20220228 17:58:17.914"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.914" endtime="20220228 17:58:17.915"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.924" level="INFO">${href} = https://www.google.com/setprefs?sig=0_iDCJOP-npKue5pg5X1u5cD-_Xic%3D&amp;hl=ta&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwj8pbz3sqL2AhV7sVYBHZg9ClcQ2ZgBCBI</msg>
+<status status="PASS" starttime="20220228 17:58:17.915" endtime="20220228 17:58:17.924"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.924" endtime="20220228 17:58:17.925"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.902" endtime="20220228 17:58:17.925"/>
+</iter>
+<iter>
+<var name="${i}">10</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.936" level="INFO">${text} = ગુજરાતી</msg>
+<status status="PASS" starttime="20220228 17:58:17.925" endtime="20220228 17:58:17.936"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.936" endtime="20220228 17:58:17.936"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.945" level="INFO">${href} = https://www.google.com/setprefs?sig=0_iDCJOP-npKue5pg5X1u5cD-_Xic%3D&amp;hl=gu&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwj8pbz3sqL2AhV7sVYBHZg9ClcQ2ZgBCBM</msg>
+<status status="PASS" starttime="20220228 17:58:17.936" endtime="20220228 17:58:17.945"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.945" endtime="20220228 17:58:17.946"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.925" endtime="20220228 17:58:17.946"/>
+</iter>
+<iter>
+<var name="${i}">11</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.958" level="INFO">${text} = ಕನ್ನಡ</msg>
+<status status="PASS" starttime="20220228 17:58:17.946" endtime="20220228 17:58:17.958"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.958" endtime="20220228 17:58:17.958"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.967" level="INFO">${href} = https://www.google.com/setprefs?sig=0_iDCJOP-npKue5pg5X1u5cD-_Xic%3D&amp;hl=kn&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwj8pbz3sqL2AhV7sVYBHZg9ClcQ2ZgBCBQ</msg>
+<status status="PASS" starttime="20220228 17:58:17.959" endtime="20220228 17:58:17.968"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.968" endtime="20220228 17:58:17.968"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.946" endtime="20220228 17:58:17.968"/>
+</iter>
+<iter>
+<var name="${i}">12</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.980" level="INFO">${text} = മലയാളം</msg>
+<status status="PASS" starttime="20220228 17:58:17.968" endtime="20220228 17:58:17.980"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.981" endtime="20220228 17:58:17.981"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:17.990" level="INFO">${href} = https://www.google.com/setprefs?sig=0_iDCJOP-npKue5pg5X1u5cD-_Xic%3D&amp;hl=ml&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwj8pbz3sqL2AhV7sVYBHZg9ClcQ2ZgBCBU</msg>
+<status status="PASS" starttime="20220228 17:58:17.981" endtime="20220228 17:58:17.990"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:17.990" endtime="20220228 17:58:17.990"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.968" endtime="20220228 17:58:17.990"/>
+</iter>
+<iter>
+<var name="${i}">13</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.002" level="INFO">${text} = ਪੰਜਾਬੀ</msg>
+<status status="PASS" starttime="20220228 17:58:17.991" endtime="20220228 17:58:18.002"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.002" endtime="20220228 17:58:18.002"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.011" level="INFO">${href} = https://www.google.com/setprefs?sig=0_iDCJOP-npKue5pg5X1u5cD-_Xic%3D&amp;hl=pa&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwj8pbz3sqL2AhV7sVYBHZg9ClcQ2ZgBCBY</msg>
+<status status="PASS" starttime="20220228 17:58:18.003" endtime="20220228 17:58:18.011"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.011" endtime="20220228 17:58:18.012"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:17.991" endtime="20220228 17:58:18.012"/>
+</iter>
+<iter>
+<var name="${i}">14</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.023" level="INFO">${text} = About</msg>
+<status status="PASS" starttime="20220228 17:58:18.012" endtime="20220228 17:58:18.023"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.023" endtime="20220228 17:58:18.024"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.033" level="INFO">${href} = https://about.google/?utm_source=google-IN&amp;utm_medium=referral&amp;utm_campaign=hp-footer&amp;fg=1</msg>
+<status status="PASS" starttime="20220228 17:58:18.024" endtime="20220228 17:58:18.033"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.033" endtime="20220228 17:58:18.033"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:18.012" endtime="20220228 17:58:18.033"/>
+</iter>
+<iter>
+<var name="${i}">15</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.045" level="INFO">${text} = Advertising</msg>
+<status status="PASS" starttime="20220228 17:58:18.033" endtime="20220228 17:58:18.045"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.045" endtime="20220228 17:58:18.045"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.054" level="INFO">${href} = https://www.google.com/intl/en_in/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&amp;utm_source=google.com&amp;utm_medium=referral&amp;utm_campaign=google_hpafooter&amp;fg=1</msg>
+<status status="PASS" starttime="20220228 17:58:18.045" endtime="20220228 17:58:18.054"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.054" endtime="20220228 17:58:18.054"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:18.033" endtime="20220228 17:58:18.055"/>
+</iter>
+<iter>
+<var name="${i}">16</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.068" level="INFO">${text} = Business</msg>
+<status status="PASS" starttime="20220228 17:58:18.055" endtime="20220228 17:58:18.068"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.068" endtime="20220228 17:58:18.068"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.078" level="INFO">${href} = https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&amp;utm_source=google.com&amp;utm_medium=referral&amp;utm_campaign=google_hpbfooter&amp;fg=1</msg>
+<status status="PASS" starttime="20220228 17:58:18.068" endtime="20220228 17:58:18.078"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.078" endtime="20220228 17:58:18.078"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:18.055" endtime="20220228 17:58:18.078"/>
+</iter>
+<iter>
+<var name="${i}">17</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.090" level="INFO">${text} = How Search works</msg>
+<status status="PASS" starttime="20220228 17:58:18.079" endtime="20220228 17:58:18.090"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.090" endtime="20220228 17:58:18.090"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.099" level="INFO">${href} = https://google.com/search/howsearchworks/?fg=1</msg>
+<status status="PASS" starttime="20220228 17:58:18.091" endtime="20220228 17:58:18.099"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.099" endtime="20220228 17:58:18.100"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:18.079" endtime="20220228 17:58:18.100"/>
+</iter>
+<iter>
+<var name="${i}">18</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.111" level="INFO">${text} = Privacy</msg>
+<status status="PASS" starttime="20220228 17:58:18.100" endtime="20220228 17:58:18.111"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.111" endtime="20220228 17:58:18.112"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.121" level="INFO">${href} = https://policies.google.com/privacy?hl=en-IN&amp;fg=1</msg>
+<status status="PASS" starttime="20220228 17:58:18.112" endtime="20220228 17:58:18.121"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.121" endtime="20220228 17:58:18.122"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:18.100" endtime="20220228 17:58:18.122"/>
+</iter>
+<iter>
+<var name="${i}">19</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.134" level="INFO">${text} = Terms</msg>
+<status status="PASS" starttime="20220228 17:58:18.122" endtime="20220228 17:58:18.134"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.134" endtime="20220228 17:58:18.134"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.143" level="INFO">${href} = https://policies.google.com/terms?hl=en-IN&amp;fg=1</msg>
+<status status="PASS" starttime="20220228 17:58:18.134" endtime="20220228 17:58:18.143"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.143" endtime="20220228 17:58:18.144"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:18.122" endtime="20220228 17:58:18.144"/>
+</iter>
+<iter>
+<var name="${i}">20</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.157" level="INFO">${text} = </msg>
+<status status="PASS" starttime="20220228 17:58:18.144" endtime="20220228 17:58:18.157"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.158" endtime="20220228 17:58:18.158"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.171" level="INFO">${href} = https://www.google.com/preferences?hl=en-IN&amp;fg=1</msg>
+<status status="PASS" starttime="20220228 17:58:18.158" endtime="20220228 17:58:18.171"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.171" endtime="20220228 17:58:18.172"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:18.144" endtime="20220228 17:58:18.172"/>
+</iter>
+<iter>
+<var name="${i}">21</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.182" level="INFO">${text} = </msg>
+<status status="PASS" starttime="20220228 17:58:18.172" endtime="20220228 17:58:18.182"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.182" endtime="20220228 17:58:18.183"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.193" level="INFO">${href} = https://www.google.com/advanced_search?hl=en-IN&amp;fg=1</msg>
+<status status="PASS" starttime="20220228 17:58:18.183" endtime="20220228 17:58:18.193"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.193" endtime="20220228 17:58:18.194"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:18.172" endtime="20220228 17:58:18.194"/>
+</iter>
+<iter>
+<var name="${i}">22</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.207" level="INFO">${text} = </msg>
+<status status="PASS" starttime="20220228 17:58:18.194" endtime="20220228 17:58:18.207"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.207" endtime="20220228 17:58:18.208"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.217" level="INFO">${href} = https://www.google.com/history/privacyadvisor/search/unauth?utm_source=googlemenu&amp;fg=1</msg>
+<status status="PASS" starttime="20220228 17:58:18.208" endtime="20220228 17:58:18.217"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.217" endtime="20220228 17:58:18.217"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:18.194" endtime="20220228 17:58:18.217"/>
+</iter>
+<iter>
+<var name="${i}">23</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.228" level="INFO">${text} = </msg>
+<status status="PASS" starttime="20220228 17:58:18.218" endtime="20220228 17:58:18.228"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.228" endtime="20220228 17:58:18.228"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.237" level="INFO">${href} = https://www.google.com/history/optout?hl=en-IN&amp;fg=1</msg>
+<status status="PASS" starttime="20220228 17:58:18.228" endtime="20220228 17:58:18.237"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.237" endtime="20220228 17:58:18.238"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:18.218" endtime="20220228 17:58:18.238"/>
+</iter>
+<iter>
+<var name="${i}">24</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.249" level="INFO">${text} = </msg>
+<status status="PASS" starttime="20220228 17:58:18.238" endtime="20220228 17:58:18.249"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.249" endtime="20220228 17:58:18.249"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${href}</var>
+<arg>${elements}[${i}]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220228 17:58:18.259" level="INFO">${href} = https://support.google.com/websearch/?p=ws_results_help&amp;hl=en-IN&amp;fg=1</msg>
+<status status="PASS" starttime="20220228 17:58:18.249" endtime="20220228 17:58:18.259"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${href}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220228 17:58:18.259" endtime="20220228 17:58:18.260"/>
+</kw>
+<status status="PASS" starttime="20220228 17:58:18.238" endtime="20220228 17:58:18.260"/>
+</iter>
+<status status="PASS" starttime="20220228 17:58:17.683" endtime="20220228 17:58:18.260"/>
+</for>
+<status status="PASS" starttime="20220228 17:58:14.187" endtime="20220228 17:58:18.260"/>
 </test>
-<status status="PASS" starttime="20220228 17:10:21.061" endtime="20220228 17:10:28.400"/>
+<status status="PASS" starttime="20220228 17:58:13.917" endtime="20220228 17:58:18.262"/>
 </suite>
 <statistics>
 <total>
@@ -132,7 +773,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Demo15 Selenium Suite">Demo15 Selenium Suite</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Demo16 Selenium Suite">Demo16 Selenium Suite</stat>
 </suite>
 </statistics>
 <errors>

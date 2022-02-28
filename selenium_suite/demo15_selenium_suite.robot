@@ -30,3 +30,4 @@ TC1
 
     ${selected_label}       Get Selected List Label    name=languageChoice
     Log To Console    ${selected_label}
+
