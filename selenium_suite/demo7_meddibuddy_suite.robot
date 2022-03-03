@@ -7,7 +7,9 @@ TC1
     Maximize Browser Window
     Set Selenium Implicit Wait    30s
     Go To    url=https://www.medibuddy.in/
-    Click Element    id=wzrk-cancel
+
+    Run Keyword And Ignore Error    Click Element    id=wzrk-cancel
+
     Click Element    link=Login
     Click Element    xpath=//div[contains(text(),'Insurance/Corporate')]
     Click Element    xpath=//div[contains(text(),'Login using Username')]
