@@ -27,5 +27,11 @@ TC1
 #    Select From List By Index    id=edit-field-business-focus-reg       2
 #     Select From List By Value    id=edit-field-business-focus-reg    51
     Click Element    id=edit-submit--2
+    
+TC2
+    Get Text    locator
+    Get Element Attribute    locator    attribute
+    Get Value    locator
+    Get Selected List Label    locator
 
 
