@@ -38,3 +38,4 @@ TC3
      Wait Until Page Contains Element    link=Admin console         200s
      #sometimes present in 100s
      Click Element    link=Admin console
+
