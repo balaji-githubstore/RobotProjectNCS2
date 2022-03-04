@@ -35,5 +35,9 @@ TC1
 
     #Use javascript only if input text keyoword did not support
     Execute Javascript      document.querySelector("#departure").value="25-03-2022"
+
+
+
+
     
     

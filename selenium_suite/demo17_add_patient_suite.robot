@@ -20,6 +20,7 @@
 *** Settings ***
 Library   SeleniumLibrary
 Library   Telnet
+Library    DatabaseLibrary
 *** Test Cases ***
 TC1
      Open Browser   url=http://demo.openemr.io/b/openemr    browser=chrome    executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
@@ -34,6 +35,7 @@ TC1
       SELECT FRAME                  xpath=//iframe[@name='fin']
       Click Element                  id=create_patient_btn1
       Unselect Frame
+
       Select Frame      xpath=//iframe[@name='pat']
       Select From List By Label     name=form_title     Mr.
       Input Text                    id=form_fname       John
@@ -45,9 +47,21 @@ TC1
       Input Text                   id=form_drivers_license    LD12345
       Input Text                    name=form_ss          text
       Click Element                 id=create
+      Unselect Frame
+
+
+      Select Frame    xpath=//iframe[@id='modalframe']
       Click Element                 xpath=//input[@value='Confirm Create New Patient']
-        ${alert_text}                 Handle Alert            action=ACCEPT        timeout=50s
+      Unselect Frame
+      
+       ${alert_text}                 Handle Alert            action=ACCEPT        timeout=50s
       Log To Console    ${alert_text}
-       Click Element                 xpath=//div[@class='closeDlgIframe']
-       Element Text Should Be        xpath=//div[@class='clearfix']     Medical Record Dashboard - John Mn
+      Should Contain    ${alert_text}    Tobacco
+      
+       Run Keyword And Ignore Error    Click Element    xpath=//div[@class='closeDlgIframe']
+
+       Select Frame    xpath=//iframe[@name='pat']
+       Element Should Contain        xpath=//div[@class='clearfix']     Medical Record Dashboard - John Mn
+       Unselect Frame
        [Teardown]                    Close Browser
+#       Row Count Is Equal To X      select * from patients where firstname='John' and lastname='Mn'     1
