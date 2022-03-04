@@ -1,122 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220304 11:33:45.903" rpa="false" schemaversion="2">
-<suite id="s1" name="Demo 22" source="C:\Mine\Company\NCS2\robot_project\selenium_suite\demo_22.robot">
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220304 13:54:46.189" rpa="false" schemaversion="2">
+<suite id="s1" name="Demo9" source="C:\Mine\Company\NCS2\robot_project\robot_suite\demo9.robot">
+<kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
+<arg>dbapiModuleName=pymysql</arg>
+<arg>dbName=dbfree_db</arg>
+<arg>dbUsername=dbfree_db</arg>
+<arg>dbPassword=12345678</arg>
+<arg>dbHost=db4free.net</arg>
+<arg>dbPort=3306</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20220304 13:54:46.282" level="INFO">Connecting using : pymysql.connect(db=dbfree_db, user=dbfree_db, passwd=12345678, host=db4free.net, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20220304 13:54:46.226" endtime="20220304 13:54:51.884"/>
+</kw>
 <test id="s1-t1" name="TC1">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>browser=gc</arg>
-<arg>executable_path=${EXECDIR}${/}driver${/}chromedriver.exe</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220304 11:33:46.154" level="INFO">Opening browser 'gc' to base url 'None'.</msg>
-<status status="PASS" starttime="20220304 11:33:46.154" endtime="20220304 11:33:47.458"/>
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<arg>select * from Products</arg>
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<msg timestamp="20220304 13:54:51.888" level="INFO">Executing : Check If Exists In Database  |  select * from Products </msg>
+<msg timestamp="20220304 13:54:51.888" level="INFO">Executing : Query  |  select * from Products </msg>
+<status status="PASS" starttime="20220304 13:54:51.887" endtime="20220304 13:54:52.183"/>
 </kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20220304 11:33:47.458" endtime="20220304 11:33:47.583"/>
+<kw name="Check If Not Exists In Database" library="DatabaseLibrary">
+<arg>select * from Products where product_id=400</arg>
+<doc>This is the negation of `check_if_exists_in_database`.</doc>
+<msg timestamp="20220304 13:54:52.186" level="INFO">Executing : Check If Not Exists In Database  |  select * from Products where product_id=400 </msg>
+<msg timestamp="20220304 13:54:52.186" level="INFO">Executing : Query  |  select * from Products where product_id=400 </msg>
+<status status="PASS" starttime="20220304 13:54:52.185" endtime="20220304 13:54:52.477"/>
 </kw>
-<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
-<arg>30s</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20220304 11:33:47.584" endtime="20220304 11:33:47.587"/>
+<kw name="Row Count" library="DatabaseLibrary">
+<var>${rowcount}</var>
+<arg>select * from Products</arg>
+<doc>Uses the input `selectStatement` to query the database and returns the number of rows from the query. Set
+optional input `sansTran` to True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20220304 13:54:52.480" level="INFO">Executing : Row Count  |  select * from Products </msg>
+<msg timestamp="20220304 13:54:52.775" level="INFO">${rowcount} = 35</msg>
+<status status="PASS" starttime="20220304 13:54:52.479" endtime="20220304 13:54:52.775"/>
 </kw>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>url=http://google.com</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220304 11:33:47.588" level="INFO">Opening url 'http://google.com'</msg>
-<status status="PASS" starttime="20220304 11:33:47.588" endtime="20220304 11:33:50.112"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${rowcount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220304 13:54:52.777" endtime="20220304 13:54:52.780"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>link=Gmail</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220304 11:33:50.113" level="INFO">Clicking element 'link=Gmail'.</msg>
-<status status="PASS" starttime="20220304 11:33:50.113" endtime="20220304 11:33:51.575"/>
+<kw name="Row Count Is Equal To X" library="DatabaseLibrary">
+<arg>select * from Products</arg>
+<arg>35</arg>
+<doc>Check if the number of rows returned from `selectStatement` is equal to the value submitted. If not, then this
+will throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit
+transaction commit or rollback.</doc>
+<msg timestamp="20220304 13:54:52.782" level="INFO">Executing : Row Count Is Equal To X  |  select * from Products  |  35 </msg>
+<msg timestamp="20220304 13:54:52.782" level="INFO">Executing : Row Count  |  select * from Products </msg>
+<status status="PASS" starttime="20220304 13:54:52.781" endtime="20220304 13:54:53.076"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>link=For work</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220304 11:33:51.576" level="INFO">Clicking element 'link=For work'.</msg>
-<status status="PASS" starttime="20220304 11:33:51.576" endtime="20220304 11:33:53.429"/>
+<kw name="Row Count Is Greater Than X" library="DatabaseLibrary">
+<arg>select * from Products</arg>
+<arg>1</arg>
+<doc>Check if the number of rows returned from `selectStatement` is greater than the value submitted. If not, then
+this will throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit
+transaction commit or rollback.</doc>
+<msg timestamp="20220304 13:54:53.079" level="INFO">Executing : Row Count Is Greater Than X  |  select * from Products  |  1 </msg>
+<msg timestamp="20220304 13:54:53.079" level="INFO">Executing : Row Count  |  select * from Products </msg>
+<status status="PASS" starttime="20220304 13:54:53.078" endtime="20220304 13:54:53.372"/>
 </kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>link=Admin console</arg>
-<arg>200s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20220304 11:33:53.429" endtime="20220304 11:33:53.489"/>
+<kw name="Table Must Exist" library="DatabaseLibrary">
+<arg>Products</arg>
+<doc>Check if the table given exists in the database. Set optional input `sansTran` to True to run command without an
+explicit transaction commit or rollback.</doc>
+<msg timestamp="20220304 13:54:53.374" level="INFO">Executing : Table Must Exist  |  Products </msg>
+<msg timestamp="20220304 13:54:53.375" level="INFO">Executing : Row Count  |  SELECT * FROM information_schema.tables WHERE table_name='Products' </msg>
+<status status="PASS" starttime="20220304 13:54:53.374" endtime="20220304 13:55:00.034"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>link=Admin console</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220304 11:33:53.490" level="INFO">Clicking element 'link=Admin console'.</msg>
-<status status="PASS" starttime="20220304 11:33:53.490" endtime="20220304 11:33:53.623"/>
-</kw>
-<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220304 11:33:53.624" endtime="20220304 11:33:55.768"/>
-</kw>
-<status status="PASS" starttime="20220304 11:33:46.153" endtime="20220304 11:33:55.770"/>
+<status status="PASS" starttime="20220304 13:54:51.884" endtime="20220304 13:55:00.036"/>
 </test>
 <test id="s1-t2" name="TC2">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>browser=gc</arg>
-<arg>executable_path=${EXECDIR}${/}driver${/}chromedriver.exe</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220304 11:33:55.780" level="INFO">Opening browser 'gc' to base url 'None'.</msg>
-<status status="PASS" starttime="20220304 11:33:55.778" endtime="20220304 11:33:57.067"/>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>Update Products set description='ji' where product_id=1</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20220304 13:55:00.044" level="INFO">Executing : Execute SQL String  |  Update Products set description='ji' where product_id=1 </msg>
+<status status="PASS" starttime="20220304 13:55:00.044" endtime="20220304 13:55:00.486"/>
 </kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20220304 11:33:57.067" endtime="20220304 11:33:57.191"/>
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<arg>select * from Products where description='ji'</arg>
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<msg timestamp="20220304 13:55:00.490" level="INFO">Executing : Check If Exists In Database  |  select * from Products where description='ji' </msg>
+<msg timestamp="20220304 13:55:00.490" level="INFO">Executing : Query  |  select * from Products where description='ji' </msg>
+<status status="PASS" starttime="20220304 13:55:00.489" endtime="20220304 13:55:00.786"/>
 </kw>
-<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
-<arg>30s</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20220304 11:33:57.192" endtime="20220304 11:33:57.195"/>
-</kw>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>url=http://google.com</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220304 11:33:57.196" level="INFO">Opening url 'http://google.com'</msg>
-<status status="PASS" starttime="20220304 11:33:57.196" endtime="20220304 11:33:59.586"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>link=Gmail</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220304 11:33:59.586" level="INFO">Clicking element 'link=Gmail'.</msg>
-<status status="PASS" starttime="20220304 11:33:59.586" endtime="20220304 11:34:00.690"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>link=For work</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220304 11:34:00.691" level="INFO">Clicking element 'link=For work'.</msg>
-<status status="PASS" starttime="20220304 11:34:00.690" endtime="20220304 11:34:02.260"/>
-</kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<arg>text=Secure business email, and so much more</arg>
-<arg>timeout=50s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" starttime="20220304 11:34:02.260" endtime="20220304 11:34:02.275"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>link=Admin console</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220304 11:34:02.276" level="INFO">Clicking element 'link=Admin console'.</msg>
-<status status="PASS" starttime="20220304 11:34:02.275" endtime="20220304 11:34:02.438"/>
-</kw>
-<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220304 11:34:02.438" endtime="20220304 11:34:04.586"/>
-</kw>
-<status status="PASS" starttime="20220304 11:33:55.775" endtime="20220304 11:34:04.588"/>
+<status status="PASS" starttime="20220304 13:55:00.042" endtime="20220304 13:55:00.789"/>
 </test>
-<status status="PASS" starttime="20220304 11:33:45.904" endtime="20220304 11:34:04.592"/>
+<test id="s1-t3" name="TC3">
+<kw name="Query" library="DatabaseLibrary">
+<var>@{result}</var>
+<arg>select * from Products</arg>
+<doc>Uses the input `selectStatement` to query for the values that will be returned as a list of tuples. Set optional
+input `sansTran` to True to run command without an explicit transaction commit or rollback.
+Set optional input `returnAsDict` to True to return values as a list of dictionaries.</doc>
+<msg timestamp="20220304 13:55:00.797" level="INFO">Executing : Query  |  select * from Products </msg>
+<msg timestamp="20220304 13:55:01.091" level="INFO">@{result} = [ (1, 'dina', 'ji') | (10, 'iPhone', '7 plus 128 Gb') | (11, 'abc', 'mayank') | (13, 'ashwini', 'xxx') | (42, 'isha', 'isha') | (100, 'bala', 'amazon') | (101, 'he', 'trainee') | (102, 'john', 'amazon...</msg>
+<status status="PASS" starttime="20220304 13:55:00.796" endtime="20220304 13:55:01.092"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220304 13:55:01.093" endtime="20220304 13:55:01.098"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result}[0]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220304 13:55:01.100" endtime="20220304 13:55:01.102"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result}[0][0]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220304 13:55:01.104" endtime="20220304 13:55:01.106"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result}[0][1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220304 13:55:01.107" endtime="20220304 13:55:01.109"/>
+</kw>
+<status status="PASS" starttime="20220304 13:55:00.794" endtime="20220304 13:55:01.111"/>
+</test>
+<kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20220304 13:55:01.118" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20220304 13:55:01.117" endtime="20220304 13:55:01.119"/>
+</kw>
+<status status="PASS" starttime="20220304 13:54:46.191" endtime="20220304 13:55:01.119"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Demo 22">Demo 22</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Demo9">Demo9</stat>
 </suite>
 </statistics>
 <errors>
