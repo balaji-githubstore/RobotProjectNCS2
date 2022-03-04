@@ -18,18 +18,19 @@ Library     SeleniumLibrary
 Test Teardown       Close Browser
 
 *** Test Cases ***
-#TC1
-#     Open Browser   browser=gc      executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
-#     Maximize Browser Window
-#     Set Selenium Implicit Wait    5s
-#     Go To    url=http://google.com
-#     Run Keyword And Ignore Error   Click Element    link=Gmail123
+TC1
+     Open Browser   browser=gc      executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
+     Maximize Browser Window
+     Set Selenium Implicit Wait    5s
+     Go To    url=http://google.com
+     Run Keyword And Ignore Error   Click Element    link=Gmail123
 
 TC2
      Open Browser   browser=gc      executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
      Maximize Browser Window
      Set Selenium Implicit Wait    5s
      Go To    url=http://google.com
+
      @{list}    Run Keyword And Ignore Error   Click Element    link=Gmail123
      Log To Console    ${list}
      Log To Console    ${list}[0]
@@ -37,8 +38,11 @@ TC2
 
      IF    '${list}[0]' == 'FAIL'
          Log To Console    Failed oo clicking gmail123
+         Fatal Error
      END
 
+TC3 
+    Log To Console    balaji
 
 
 

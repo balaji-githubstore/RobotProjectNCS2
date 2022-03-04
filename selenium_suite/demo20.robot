@@ -1,10 +1,11 @@
 *** Settings ***
 Library   SeleniumLibrary
-Library   Telnet
+Library   OperatingSystem
 
 *** Test Cases ***
 TC1
-     Open Browser   url=http://demo.openemr.io/b/openemr    browser=chrome    executable_path=${EXECDIR}${/}driver${/}chromedriver.exe
+#     Append To Environment Variable    Path     C:${/}Mine${/}Company${/}NCS2${/}chromedriver_win32
+     Open Browser   url=http://demo.openemr.io/b/openemr    browser=chrome
      Maximize Browser Window
      Set Selenium Implicit Wait    30s
      Input Text                    id=authUser                admin

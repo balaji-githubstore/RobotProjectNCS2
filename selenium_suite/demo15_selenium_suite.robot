@@ -30,4 +30,11 @@ TC1
 
     ${selected_label}       Get Selected List Label    name=languageChoice
     Log To Console    ${selected_label}
+    
+     ${pl}  Get Element Attribute    id=authUser    placeholder
+     Element Attribute Value Should Be    id=authUser    placeholder    Username:
+
+     ${textbox_value}   Get Value    id=personal_txtEmpFirstName
+     Textfield Value Should Be    id=personal_txtEmpFirstName    Paul
+
 
